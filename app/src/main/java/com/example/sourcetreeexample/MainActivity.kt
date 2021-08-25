@@ -10,6 +10,5 @@ class MainActivity : AppCompatActivity() {
         print("something stupid")
         print("and something stupid from branch 1")
         print("something stupid from main branch")
-        print("and something stupid from branch 1")
     }
 }
