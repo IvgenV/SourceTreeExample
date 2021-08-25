@@ -8,6 +8,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         print("something stupid")
+        print("and something stupid from branch 1")
         print("something stupid from main branch")
         print("and something stupid from branch 1")
     }
