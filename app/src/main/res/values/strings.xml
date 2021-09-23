@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SourceTreeExample</string>
+    <string name="very_long_text">"Lorem ipsum dolor sit amet, et" +
+            " alienum inciderint efficiantur nec, posse causae molestie" +
+            " eos in. Ea vero praesent vix, nam soleat recusabo id." +
+            " Qui ut exerci option laboramus. In habeo posse ridens quo," +
+            " eligendi volutpat interesset ut est, mel nibh accusamus no." +
+            " Te eam consulatu repudiare adipiscing, usu et choro quodsi euripidis."</string>
+    <string name="short_text">I am Ivgen and i am programmer</string>
+    <string name="postfix">...see more </string>
 </resources>
