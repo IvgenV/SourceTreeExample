@@ -1,28 +1,28 @@
-<androidx.slidingpanelayout.widget.SlidingPaneLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/sliding_pane_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- The first child view becomes the left pane. When the combined
-         desired width (expressed using android:layout_width) would
-         not fit on-screen at once, the right pane is permitted to
-         overlap the left. -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_pane"
-        android:layout_width="280dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"/>
+   <Button
+       android:id="@+id/firebaseButton"
+       android:text="FireBase"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintBottom_toTopOf="@id/textRemote"/>
 
-    <!-- The second child becomes the right (content) pane. In this
-         example, android:layout_weight is used to expand this detail pane
-         to consume leftover available space when the
-         the entire window is wide enough to fit both the left and right pane.-->
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/detail_container"
-        android:layout_width="300dp"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
-        android:background="#ff333333"
-        android:name="com.example.SelectAnItemFragment" />
-</androidx.slidingpanelayout.widget.SlidingPaneLayout>
+   <TextView
+       android:id="@+id/textRemote"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textSize="35sp"
+       android:text="dkngsdgjndsgsd"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/firebaseButton"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
