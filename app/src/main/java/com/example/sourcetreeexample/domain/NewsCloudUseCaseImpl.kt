@@ -3,8 +3,7 @@ package com.example.sourcetreeexample.domain
 import javax.inject.Inject
 
 
-///inject constructor что это
-class NewsCloudUseCaseImpl(
+class NewsCloudUseCaseImpl @Inject constructor(
     val newsCloudRepository:
     NewsCloudRepository
 ) : NewsCloudUseCase {

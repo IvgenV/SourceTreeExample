@@ -14,8 +14,6 @@ interface AppComponent {
 
     fun inject(mainActivity: MainActivity)
 
-    val computer: Computer
-    val news: NewsCloudUseCase
 
 }
 
@@ -26,17 +24,9 @@ class News {
     ///Насколько я понял Provides можно заменить на @Inject constructor
     ///и это будет тоже самое или не?
     //с inject constructor не хочет собирать
-    @Provides
-    fun provideNewsRepositoryImpl(
-        newsRepository: NewsCloudRepository
-    ): NewsCloudUseCase {
-        return NewsCloudUseCaseImpl(newsRepository)
-    }
 
-    @Provides
-    fun provideNewsRepository(): NewsCloudRepository {
-        return NewsCloudSource()
-    }
 
 }
+
+
 

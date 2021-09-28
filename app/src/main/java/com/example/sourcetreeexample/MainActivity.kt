@@ -14,8 +14,6 @@ import androidx.core.content.pm.PackageInfoCompat
 import com.example.sourcetreeexample.dagger.appComponent
 import com.example.sourcetreeexample.domain.NewsCloudUseCase
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig
-import com.google.firebase.remoteconfig.ktx.get
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import javax.inject.Inject
@@ -37,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var news: NewsCloudUseCase
 
+
     lateinit var pInfo: PackageInfo
     var longVersionCode: Long? = null
     var myVersionCode: Int? = null
@@ -49,9 +48,9 @@ class MainActivity : AppCompatActivity() {
         firebaseButton = findViewById(R.id.firebaseButton)
 
 
-
         appComponent.inject(this)
-        Toast.makeText(this,news.getNews(),Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,computer.toString(),Toast.LENGTH_LONG).show()
+
 
 
         val defaultValue = hashMapOf<String, Any?>()
