@@ -1,18 +1,20 @@
 package com.example.sourcetreeexample
 
-class Processor  {
+import javax.inject.Inject
+
+class Processor @Inject constructor()  {
     override fun toString() = "RYZEN5_2600"
 }
 
-class Motherboard{
+class Motherboard @Inject constructor(){
     override fun toString() = "X7 3000"
 }
 
-class RAM {
+class RAM @Inject constructor() {
     override fun toString() = "16 GB"
 }
 
-data class Computer(
+data class Computer @Inject constructor(
     val processor: Processor,
     val motherboard: Motherboard,
     val ram: RAM

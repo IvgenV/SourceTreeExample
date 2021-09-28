@@ -1,4 +1,4 @@
-package com.example.sourcetreeexample.news
+package com.example.sourcetreeexample.rate
 
 
 import com.google.gson.annotations.SerializedName

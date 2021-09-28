@@ -14,6 +14,7 @@ import androidx.core.content.pm.PackageInfoCompat
 import com.example.sourcetreeexample.dagger.appComponent
 import com.example.sourcetreeexample.domain.NewsCloudUseCase
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.ktx.get
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
@@ -27,15 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var card: CardView
     private lateinit var textRemote: TextView
 
-    private val LONG_TEXT = "Lorem ipsum dolor sit amet, et" +
-            " alienum inciderint efficiantur nec, posse causae molestie" +
-            " eos in. Ea vero praesent vix, nam soleat recusabo id." +
-            " Qui ut exerci option laboramus. In habeo posse ridens quo," +
-            " eligendi volutpat interesset ut est, mel nibh accusamus no." +
-            " Te eam consulatu repudiare adipiscing, usu et choro quodsi euripidis."
 
-    private val SHORT_TEXT = " For the 2009 model " +
-            "the G35 sedan was replaced by the G37 sedan."
 
 
     @Inject
@@ -58,6 +51,8 @@ class MainActivity : AppCompatActivity() {
 
 
         appComponent.inject(this)
+        Toast.makeText(this,news.getNews(),Toast.LENGTH_SHORT).show()
+
 
         val defaultValue = hashMapOf<String, Any?>()
         defaultValue["new_version_code"] = "defaultValueError!"
@@ -65,33 +60,26 @@ class MainActivity : AppCompatActivity() {
         val configSettings = remoteConfigSettings {
             minimumFetchIntervalInSeconds = 10
         }
+
         remoteConfig.setConfigSettingsAsync(configSettings)
         remoteConfig.setDefaultsAsync(defaultValue)
-        textRemote.text = remoteConfig.getString("new_version_code")
         firebaseButton.setOnClickListener {
             remoteConfig.fetchAndActivate().addOnCompleteListener(this) {
                 if (it.isSuccessful) {
                     Log.d("MYLOG", "isSuccessful")
                     Toast.makeText(this, "remoteconfig!", Toast.LENGTH_SHORT).show()
-                    textRemote.text = remoteConfig.getString("new_version_code")
+                    textRemote.text = remoteConfig.getString("experiment_value")
                 }else{
                     Toast.makeText(this, "remoteconfigError!", Toast.LENGTH_SHORT).show()
-                    textRemote.text = remoteConfig.getString("new_version_code")
                 }
             }
         }
-
 
 
         if (supportActionBar != null) {
             supportActionBar?.hide()
         }
 
-    }
-
-    @Inject
-    fun getNewsFromCloud(news: NewsCloudUseCase) {
-        Log.d("sdsdsdsdgdsg", "getNewsFromCloud")
     }
 
     fun getVersionCode(): String {
